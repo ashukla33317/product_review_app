@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block content %}
+<h1>Index Page</h1>
+<h1>Welcome {{request.user.username}}</h1>
+    <div class="prod_grid">
+        {% for item in product_list %}
+        <div class="product_display">
+            <img src="data:image;base64,{{item.image_path}}" class="thumbnail" alt="">
+            <a href="product/?uid={{item.uid}}">
+                <h4>{{item.product_name}}</h4>
+            </a>
+            <p>Price : {{item.price}}$</p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
